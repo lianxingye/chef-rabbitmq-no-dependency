@@ -8,8 +8,9 @@ end
 
 package 'gnupg'
 
-execute "download rabbit" do
-  command "wget 'https://dl.bintray.com/rabbitmq/Keys/rabbitmq-release-signing-key.asc' -P /tmp"
+remote_file '/tmp/rabbitmq-release-signing-key.asc' do
+  source 'https://dl.bintray.com/rabbitmq/Keys/rabbitmq-release-signing-key.asc'
+  action :create
 end
 
 execute "download rabbit" do
